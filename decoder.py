@@ -39,15 +39,13 @@ class BitReader(object):
 
 class LZWDecoding:
 
-    def __init__(self, path, param):
+    def __init__(self, path):
         """
         :param path: file path to compress
-        :param param: parameter for max dictionary size
         """
         self.path = path
         self.reverse_lzw_mapping = INT_TO_ASCII.copy()  # key = dictionary length
         self.rev_keys = len(INT_TO_ASCII)
-        self.param = param
 
     def lzw_decompress(self, input_path, output_path):
         """
@@ -72,7 +70,7 @@ class LZWDecoding:
                     self.reverse_lzw_mapping = INT_TO_ASCII.copy()
                     self.rev_keys = len(INT_TO_ASCII)
 
-                if previous == -1:  # aha kazko truksta:)
+                if previous == -1:
                     previous = key
                 else:
                     if key != self.rev_keys:

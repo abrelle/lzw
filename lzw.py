@@ -5,11 +5,11 @@ from decoder import LZWDecoding
 from encoder import LZWEncoding
 
 if __name__ == "__main__":
-    path = 'flowers.bmp'  # file to encode
-    decoded_file = 'flowers_dec.bmp'  # file to decode
+    path = 'big_bmp.bmp'  # file to encode
+    decoded_file = 'big_bmp_dec.bmp'  # file to decode
     parameter = 9
     encoding = LZWEncoding(path=path, param=parameter)
-    decoding = LZWDecoding(path=path, param=parameter)
+    decoding = LZWDecoding(path=path)
 
     start_time = time.time()
     encoded_path = encoding.lzw_compress()
